@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Be the Interpreter</title>
+	<script type="text/javascript">
+		// Example:
+		console.log("===== Example =====");
+		console.log(hello);
+		var hello = "interesting";
+		function example() {
+			var hello = "hi!"
+			console.log(hello)
+		}
+		example();
+		console.log(hello)
+		// Problem 1:
+		console.log("===== Problem 1 =====");
+		console.log(first_variable);
+		var first_variable = "Yipee I was first!";
+		function firstFunc() {
+			first_variable = "Not anymore!!!";
+			console.log(first_variable)
+		}
+		console.log(first_variable);
+		// Problem 2:
+		console.log("===== Problem 2 =====");
+		var food = "Chicken";
+		function eat() {
+			food = "half-chicken";
+			console.log(food);
+			var food = "gone";
+		}
+		eat();
+		console.log(food);
+		// Problem 3:
+		console.log("===== Problem 3 =====");
+		var new_var = "NEW!";
+		function lastFunc() {
+			new_var = "old";
+		}
+		console.log(new_var);
+	</script>
+</head>
+<body>
+	<h1>Be the Interpreter</h1>
+		<p>Below are the original and interpreted codes for some javascript functions to show the effects of variable hoisting and scoping.</p>
+		<p>Open Inspect Element and look at the Console to see the outputs for each of the functions.</p>
+	<h3>Example</h3>
+	<h5>ORIGINAL CODE</h5>
+	<pre><code>
+	console.log(hello);
+	var hello = "interesting";
+	function example() {
+		var hello = "hi!"
+		console.log(hello)
+	}
+	example();
+	console.log(hello)
+	</code></pre>
+	<h5>INTERPRETED CODE</h5>
+	<pre><code>
+	var hello;
+	console.log(hello);			// print: undefined
+	hello = "interesting";
+	function example() {
+		var hello;
+		hello = "hi";
+		console.log(hello)		// print: "hi"
+	}
+	example();
+	console.log(hello);			// print: "interesting"
+	</code></pre>
+
+	<h3>Problem 1</h3>
+	<h5>ORIGINAL CODE</h5>
+	<pre><code>
+	console.log(first_variable);
+	var first_variable = "Yipee I was first!";
+	function firstFunc() {
+		first_variable = "Not anymore!!!";
+		console.log(first_variable)
+	}
+	console.log(first_variable);
+	</code></pre>
+	<h5>INTERPRETED CODE</h5>
+	<pre><code>
+	var first_variable
+	console.log(first_variable);			// print: undefined
+	first_variable = "Yipee I was first!";
+	function firstFunc() {
+		first_variable = "Not anymore!!!";	// does not print (function not invoked)
+		console.log(first_variable)
+	}
+	console.log(first_variable);			// print: "Yipee I was first!"
+	</code></pre>
+
+	<h3>Problem 2</h3>
+	<h5>ORIGINAL CODE</h5>
+	<pre><code>
+	var food = "Chicken";
+	function eat() {
+		food = "half-chicken";
+		console.log(food);
+		var food = "gone";
+	}
+	eat();
+	console.log(food);
+	</code></pre>
+	<h5>INTERPRETED CODE</h5>
+	<pre><code>
+	var food;
+	food = "Chicken";
+	function eat() {
+		var food = "gone";
+		food = "half-chicken";
+		console.log(food);		// print: "half-chicken"
+	}
+	eat();
+	console.log(food);			// print: "Chicken"
+	</code></pre>
+
+	<h3>Problem 3</h3>
+	<h5>ORIGINAL CODE</h5>
+	<pre><code>
+	var new_var = "NEW!";
+	function lastFunc() {
+		new_var = "old";
+	}
+	console.log(new_var);
+	</code></pre>
+	<h5>INTERPRETED CODE</h5>
+	<pre><code>
+	var new_var;
+	var new_var = "NEW!";
+	function lastFunc() {
+		new_var = "old";
+	}
+	console.log(new_var);	// print: "NEW!"
+	</code></pre>
+</body>
+</html>
