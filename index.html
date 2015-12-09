@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Fundamentals Part I</title>
+	<script type="text/javascript">
+		// 1. Create a program that goes through each value in array x, where x is [3, 5, 'Dojo', 'rocks', 'Michael', 'Sensei']. Have it log each value of the array.
+		console.log("===== 1. iterateArr() =====");
+		function iterateArr(arr) {
+			for(var i = 0; i < arr.length - 1; i++) {
+				console.log(x[i]);
+			}
+		}
+		x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+		iterateArr(x);
+		// 2. Add a new value in the array x using a push method. New value you should add is 100.
+		console.log("===== 2. newVal() =====");
+		function newVal(arr) {
+			arr.push(100);
+			console.log(x);
+		}
+		x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+		newVal(x);
+		// 3. Add a new array as the last member of the array then log x in the console and analyze how x looks.
+		console.log("===== 3. embedArr() =====");
+		function embedArr(arr) {
+			var y = [6,7,8];
+			arr.push(y);
+			console.log(x);
+		}
+		x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+		embedArr(x);
+		// 4. Create a simple for loop that sums all the numbers between 1 to 500. Have console log the final sum.
+		console.log("===== 4. sumAll() =====");
+		function sumAll(min,max) {
+			var sum = 0;
+			for(var i = min; i <= max; i++) {
+				sum+=i;
+			}
+			console.log(sum);
+		}
+		sumAll(1,500);
+		// 5. Write a loop that will go through the array [1, 5, 90, 25, -3, 0], find the minimum value, and then print it.
+		console.log("===== 5. findMin() =====");
+		function findMin(arr) {
+			var min = arr[0];
+			for(var i = 0; i < arr.length; i++) {
+				if(min > arr[i]) {
+					min = arr[i];
+				}
+			}
+			console.log(min);
+		}
+		z = [1, 5, 90, 25, -3, 0];
+		findMin(z);
+		// 6. Write a loop that will go through the array [1, 5, 90, 25, -3, 0], find the average of all of the values, and then print it.
+		console.log("===== 6. findAvg() =====");
+
+		function findAvg(arr) {
+			var sum2 = 0;
+			for(index in arr) {
+				sum2+= arr[index];
+			}
+			var avg = sum2/arr.length;
+			console.log(avg);
+		}
+		z = [1, 5, 90, 25, -3, 0];
+		findAvg(z);
+	</script>
+</head>
+<body>
+	<h1>Fundamental JavaScript Algorithms</h1>
+		<p>Open Inspect Element and look at the Console to see the outputs for each of the functions.</p>
+		<p>You can also try invoking the functions with your own variables using the Console.</p>
+	<h3>1. Create a program that goes through each value in array x, where x is [3, 5, 'Dojo', 'rocks', 'Michael', 'Sensei']. Have it log each value of the array.</h3>
+	<pre><code>
+		function iterateArr(arr) {
+			for(var i = 0; i < arr.length - 1; i++) {
+				console.log(x[i]);
+			}
+		}
+		x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+		iterateArr(x);
+	</code></pre>
+	<h3>2. Add a new value in the array x using a push method. New value you should add is 100.</h3>
+	<pre><code>
+		function newVal(arr) {
+			arr.push(100);
+			console.log(x);
+		}
+		x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+		newVal(x);
+	</code></pre>
+	<h3>3. Add a new array as the last member of the array then log x in the console and analyze how x looks.</h3>
+	<pre><code>
+		function embedArr(arr) {
+			var y = [6,7,8];
+			arr.push(y);
+			console.log(x);
+		}
+		x = [3,5,'Dojo', 'rocks', 'Michael', 'Sensei'];
+		embedArr(x);
+	</code></pre>
+	<h3>4. Create a simple for loop that sums all the numbers between 1 to 500. Have console log the final sum.</h3>
+	<pre><code>
+		function sumAll(min,max) {
+			var sum = 0;
+			for(var i = min; i <= max; i++) {
+				sum+=i;
+			}
+			console.log(sum);
+		}
+		sumAll(1,500);
+	</code></pre>
+	<h3>5. Write a loop that will go through the array [1, 5, 90, 25, -3, 0]. Find the minimum value, and then print it.</h3>
+	<pre><code>
+		function findMin(arr) {
+			var min = arr[0];
+			for(var i = 0; i < arr.length; i++) {
+				if(min > arr[i]) {
+					min = arr[i];
+				}
+			}
+			console.log(min);
+		}
+		z = [1, 5, 90, 25, -3, 0];
+		findMin(z);
+	</code></pre>
+	<h3>6. Write a loop that will go through the array [1, 5, 90, 25, -3, 0]. Find the average of all of the values, and then print it.</h3>
+	<pre><code>
+		function findAvg(arr) {
+			var sum2 = 0;
+			for(index in arr) {
+				sum2+= arr[index];
+			}
+			var avg = sum2/arr.length;
+			console.log(avg);
+		}
+		z = [1, 5, 90, 25, -3, 0];
+		findAvg(z);
+	</code></pre>
+</body>
+</html>
